@@ -10,7 +10,7 @@ class HomeController extends Controller
     {
         $viewData = [];
         $viewData["title"] = "Home Page - Online Store";
-        return view("home.index")->with("viewData",$viewData);
+        return view("home.index")->with("viewData", $viewData);
     }
 
     public function about()
@@ -20,6 +20,6 @@ class HomeController extends Controller
         $viewData["subtitle"] = "About Us";
         $viewData["description"] = "This is an About Page";
         $viewData["author"] = "Developer by: MMS";
-        return view("home.about")->with("viewData",$viewData);
+        return view("home.about")->with("viewData", $viewData);
     }
 }

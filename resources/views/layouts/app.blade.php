@@ -19,6 +19,7 @@
                 <div class="navbar-nav ms-auto">
                     <a href="https://github.com/PracticalBooks/Practical-Laravel/" class="nav-link active" target="_blank">github</a>
                     <a href="{{ route("home.index") }}" class="nav-link active">Home</a>
+                    <a href="{{ route("product.index") }}" class="nav-link active">Products</a>
                     <a href="{{ route("home.about") }}" class="nav-link active">About</a>
                 </div>
             </div>
