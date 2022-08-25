@@ -39,7 +39,8 @@
     <div class="copyright py-4 text-center text-white">
         <div class="container">
             <small>
-                Copyright - <a href="https://twitter.com/danielgarax" target="_blank" class="text-reset fw-bold text-decoration-none">Daniel Correa</a>
+                {{-- Copyright - <a href="https://twitter.com/danielgarax" target="_blank" class="text-reset fw-bold text-decoration-none">Daniel Correa</a> --}}
+                <b>In this application we don't use Mass Assignment Method</b>
             </small>
         </div>
     </div>
