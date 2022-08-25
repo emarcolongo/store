@@ -13,7 +13,7 @@
                     @endforeach        
                 </ul>
             @endif
-            <form action="{{ route('admin.product.store') }}" method="post">
+            <form action="{{ route('admin.product.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col">
@@ -33,6 +33,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3 row">
+                            <label for="" class="col-lg-2 col-md-6 col-sm-2 col-form-label">Image:</label>
+                            <div class="col-lg-10 col-md-6 col-sm-12">
+                                <input type="file" name="image" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        &nbsp;
+                    </div>
+                </div>
+
                 <div class="mb-3">
                     <label for="" class="form-label">Description:</label>
                     <textarea name="description" rows="3" class="form-control">{{ old('description') }}</textarea>
@@ -61,8 +75,18 @@
                         <tr>
                             <td>{{ $product->getId() }}</td>
                             <td>{{ $product->getName() }}</td>
-                            <td>Edit</td>
-                            <td>Delete</td>
+                            <td>
+                                <a href="{{ route('admin.product.edit',['id'=>$product->getId()]) }}" class="btn btn-primary">
+                                    <i class="bi-pencil"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <form action="{{ route('admin.product.delete',$product->getId()) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger"><i class="bi-trash"></i></button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
