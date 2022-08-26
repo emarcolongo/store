@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,7 @@ Route::middleware('admin')->group(function() {
     Route::put('/admin/products/{id}/update', [AdminProductController::class, 'update'])->name("admin.product.update");
     Route::delete('/admin/products/{id}/delete', [AdminProductController::class, 'delete'])->name("admin.product.delete");
 });
+
+Route::get('/cart', [CartController::class, 'index'])->name("cart.index");
+Route::get('/cart/delete', [CartController::class, 'delete'])->name("cart.delete");
+Route::post('/cart/add/{id}', [CartController::class, 'add'])->name("cart.add");

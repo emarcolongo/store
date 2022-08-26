@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Item;
 
 class Product extends Model
 {
+    
     public static function validate($request)
     {
         $request->validate([
@@ -14,6 +16,30 @@ class Product extends Model
             "price" => "required|numeric|gt:0",
             'image' => 'image',
         ]);
+    }
+
+    public function items()
+    {
+        return $this->hasMany(Items::class);
+    }
+
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    public function setItems($items)
+    {
+        $this->items = $items;
+    }
+
+    public static function sumPricesByQuantities($products, $productsInSession)
+    {
+        $total = 0;
+        foreach($products as $product) {
+            $total = $total + ($product->getPrice()*$productsInSession[$product->getId()]);
+        }
+        return $total;  
     }
 
     public function getId()
