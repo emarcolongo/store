@@ -19,7 +19,7 @@ class Order extends Model
 
     public function getId()
     {
-        return $this->atrributes['id'];
+        return $this->attributes['id'];
     }
 
     public function setId($id)
@@ -57,7 +57,7 @@ class Order extends Model
         $this->attributes['created_at'] = $createdAt;
     }
 
-    public function getUpdatedAt() 
+    public function getUpdatedAt()
     {
         return $this->attributes['updated_at'];
     }

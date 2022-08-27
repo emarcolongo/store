@@ -36,10 +36,10 @@ class Product extends Model
     public static function sumPricesByQuantities($products, $productsInSession)
     {
         $total = 0;
-        foreach($products as $product) {
+        foreach ($products as $product) {
             $total = $total + ($product->getPrice()*$productsInSession[$product->getId()]);
         }
-        return $total;  
+        return $total;
     }
 
     public function getId()

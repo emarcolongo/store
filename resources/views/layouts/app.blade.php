@@ -28,6 +28,7 @@
                         <a href="{{ route('login') }}" class="nav-link active"><i class="bi-box-arrow-right"></i> Login</a>
                         <a href="{{ route('register') }}" class="nav-link active"><i class="bi-person-plus"></i> Register</a>
                     @else
+                        <a href="{{ route('myaccount.orders') }}" class="nav-link active">My Orders</a>
                         <form action="{{ route('logout') }}" method="post" id="logout">
                             @csrf
                             <a role="button" class="nav-link active" onclick="document.getElementById('logout').submit()"><i class="box-arrow-left"></i> Logout</a>
