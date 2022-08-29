@@ -14,7 +14,7 @@ class MyAccountController extends Controller
         $viewData["title"] = "My Orders - Online Store";
         $viewData["subtitle"] = "My Orders";
         //$viewData["orders"] = Order::where('user_id', Auth::user()->getId())->get();  //lazy
-        $viewData["orders"] = Order::with(['items.product'])->where('user_id', Aut::user()->getId())->get();    //eager
+        $viewData["orders"] = Order::with(['items.product'])->where('user_id', Auth::user()->getId())->get();    //eager
         return view('myaccount.orders')->with("viewData", $viewData);
     }
 }
